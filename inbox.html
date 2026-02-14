@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+overflow:hidden;
+}
+
+/* Mailbox */
+.mailbox{
+font-size:100px;
+cursor:pointer;
+transition:0.5s;
+}
+
+.mailbox:hover{
+transform:scale(1.1);
+}
+
+.container{
+display:none;
+text-align:center;
+animation:fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.5);}
+to{opacity:1; transform:scale(1);}
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+max-width:350px;
+}
+
+.card img{
+width:200px;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+color:#ff4d6d;
+margin-bottom:20px;
+}
+
+button{
+padding:12px 30px;
+margin:10px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+transition:0.3s;
+}
+
+.yes{
+background:#ff4d6d;
+color:white;
+}
+
+.no{
+background:#444;
+color:white;
+position:absolute;
+}
+
+.result{
+display:none;
+font-family:'Dancing Script',cursive;
+font-size:28px;
+color:#ff4d6d;
+margin-top:20px;
+animation:fadeIn 1s ease forwards;
+}
+</style>
+</head>
+
+<body>
+
+<div class="mailbox" onclick="openMail()">📩</div>
+
+<div class="container" id="mainContent">
+<div class="card">
+<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+<h1>Do You Love Me? 💖</h1>
+<button class="yes" onclick="showLove()">Yes 💕</button>
+<button class="no" id="noBtn">No 😜</button>
+
+<div class="result" id="resultText">
+Yay! I knew you’d say yes! ❤️
+</div>
+
+</div>
+</div>
+
+<script>
+function openMail(){
+document.querySelector('.mailbox').style.display="none";
+document.getElementById('mainContent').style.display="block";
+}
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+const x=Math.random()*window.innerWidth-100;
+const y=Math.random()*window.innerHeight-50;
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+});
+
+function showLove(){
+document.getElementById("resultText").style.display="block";
+}
+</script>
+
+</body>
+</html>
